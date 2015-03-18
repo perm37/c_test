@@ -7,24 +7,33 @@ int mygetline(char line[], int maxline);
 
 int main()
 {
-int len /*storage for length of line*/
-int myline[MAXLINE];
+int len; /*storage for length of line*/
+char myline[MAXLINE];
 
 while((len = mygetline(myline, MAXLINE)) > 0)
   if (len > 80) {
     printf("%s", myline); 
     }
-  els
-
-
-get user input (getchar)
-take chars and store in array,increment a counter for each character added. end of line is marked by a newline and string is marked by a \0 (null char)
-return counter
-if counter is > 80
-print the array
 
 }
 
 int mygetline(char s[], int line)
 {
-  
+  int c;
+  int i;
+  i = 0;
+  while((c = getchar()) !=EOF && c != '\n' && c !='\0')
+    {
+     s[i] = c;
+     ++i;
+    } 
+  if (c == '\n')
+    {
+    s[i] = c;
+    ++i;
+    c = '\0';
+    s[i] = c;
+    }
+
+return i;
+}
