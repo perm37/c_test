@@ -4,7 +4,6 @@
 #include <stdio.h>
 
 #define TAB 8   /*default tab stop on computer is 8*/
-#define STOP 4
 
 /*Start counting blanks from 0.If number of consecutive blanks is < TAB, then use spaces. If number of consecutive blanks is >= to TAB then put a tab char. Reset blank counter. repeat until char is not white space*/
 
@@ -20,14 +19,13 @@ int main()
  while ((c = getchar()) != EOF){
    if (c == ' '){
      blanks = 1;
-     /*putchar(c);*/
      /*Enter while loop to count blank spaces*/
      while ((c = getchar()) == ' '){
        ++blanks;
      }
     /*Decision on what to do with the number of blanks(n) we find*/
     if (blanks <= 1 ){
-     putchar('|');
+     putchar(' ');
      k = tab_space(k);
      putchar(c);
      k = tab_space(k);
@@ -42,8 +40,8 @@ int main()
       k = tab_space(k);
     }
     else if (blanks > TAB){
-     while(blanks > 0 ){
-      putchar('r');
+     while(blanks >= TAB ){
+      putchar('\t');
       blanks =  blanks - k;
 /*printf(" k is  %d",k);*/
       k = TAB;
@@ -51,7 +49,7 @@ int main()
  
 /*printf("\n  blanks are %d\n", blanks);*/
        while (blanks > 0){
-          putchar('|');
+          putchar('!');
           k = tab_space(k);   
           --blanks;
        }
@@ -82,7 +80,7 @@ int main()
 int tab_space(int i)
 {
  if ( i <= 1 ){
-     i = TAB;
+     i = TAB + 1;
    }
   --i;
 /*  printf("\n  k is %d\n", i); */
