@@ -32,7 +32,7 @@ int main()
     }
     else if (blanks > 1 && blanks <= TAB){
       while (blanks > 0){
-        putchar('|');
+        putchar(' ');
       k = tab_space(k);
         --blanks;
       }
@@ -49,7 +49,7 @@ int main()
  
 /*printf("\n  blanks are %d\n", blanks);*/
        while (blanks > 0){
-          putchar('!');
+          putchar(' ');
           k = tab_space(k);   
           --blanks;
        }
