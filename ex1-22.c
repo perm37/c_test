@@ -13,6 +13,10 @@ int c;
 int k = 0;
 
 while ((c = getchar()) != EOF){
+ if (c == '\n'){
+   k = 0;
+  }
+
  if (k >= BARRIER){
    if ((c == ' ') || (c == '\t')){
     putchar('\n');
@@ -25,6 +29,7 @@ while ((c = getchar()) != EOF){
     c = getchar();
      if ((c == ' ') || (c == '\t')){
       putchar('\n');
+      k = 0;
       b = 1;
      }
      else if (c == EOF){
@@ -32,6 +37,7 @@ while ((c = getchar()) != EOF){
      }
      else{
      putchar(c);
+     k = 0;
      }
     }
       
